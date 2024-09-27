@@ -1,0 +1,51 @@
+aid: openfigi
+name: OpenFIGI
+type: Index
+description: |-
+  OpenFIGI is your entry point to multiple tools for identifying, mapping and requesting a free Financial Instrument Global Identifier (FIGI). OpenFIGI is an open system for identifying instruments globally across all asset classes. Combining the FIGI with additional descriptive meta-data, firms are able to link fragmented proprietary symbologies, fill the gaps that remain to create a data lineage, streamline the trade workflow and reduce operational risk. The OpenFIGI API provides users with programmatic access to easily map and integrate FIGIs at no cost and with no material impediments on use.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+- Financial
+- Instruments
+created: '2024-09-27'
+modified: '2024-09-27'
+url: https://github.com/api-search/openfigi/apis.yml
+specificationVersion: '0.18'
+apis:
+- aid: openfigi:openfigi
+  name: OpenFIGI API
+  description: OpenFIGI is your entry point to multiple tools for identifying, mapping and requesting a free Financial Instrument Global Identifier (FIGI). OpenFIGI is an open system for identifying instruments globally across all asset classes. Combining the FIGI with additional descriptive meta-data, firms are able to link fragmented proprietary symbologies, fill the gaps that remain to create a data lineage, streamline the trade workflow and reduce operational risk. The OpenFIGI API provides users with programmatic access to easily map and integrate FIGIs at no cost and with no material impediments on use.
+  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://www.openfigi.com/
+  baseURL: https://api.openfigi.com
+  tags:
+    - Financial
+    - Instruments
+  properties:
+  - type: Documentation
+    url: https://www.openfigi.com/api
+  - type: Example
+    url: https://www.openfigi.com/api#examples-on-github
+  - type: Rate Limits
+    url: ttps://www.openfigi.com/api#rate-limit
+  - type: Status Codes
+    url: https://www.openfigi.com/api#status-code
+  - type: OpenAPI
+    url: https://api.openfigi.com/schema    
+common:
+- type: About
+  url: https://www.openfigi.com/about
+- type: News
+  url: https://www.openfigi.com/about/news
+- type: Login
+  url: https://www.openfigi.com/user/login
+- type: Signup
+  url: https://www.openfigi.com/user/signup
+- type: Contact
+  url: https://www.openfigi.com/feedback
+- type: FAQs
+  url: https://www.openfigi.com/docs/faqs
+maintainers:
+- FN: Kin Lane
+  X-twitter: apievangelist
+  email: info@apievangelist.com
