@@ -1,5 +1,5 @@
 aid: openfigi
-url: https://github.com/api-search/openfigi/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/openfigi/refs/heads/main/apis.yml
 apis:
   - aid: openfigi:openfigi
     name: OpenFIGI API
@@ -50,7 +50,7 @@ common:
   - url: https://www.openfigi.com/docs/faqs
     type: FAQs
 created: 2024-09-27T00:00:00.000Z
-modified: 2024-09-27T00:00:00.000Z
+modified: '2026-03-16'
 description: >-
   OpenFIGI is your entry point to multiple tools for identifying, mapping and
   requesting a free Financial Instrument Global Identifier (FIGI). OpenFIGI is
@@ -62,6 +62,5 @@ description: >-
   integrate FIGIs at no cost and with no material impediments on use.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
-    X-twitter: apievangelist
+    email: kin@apievangelist.com
 specificationVersion: '0.18'
