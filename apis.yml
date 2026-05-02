@@ -20,7 +20,7 @@ apis:
         type: Rate Limits
       - url: https://www.openfigi.com/api#status-code
         type: Status Codes
-      - url: https://api.openfigi.com/schema
+      - url: https://raw.githubusercontent.com/api-evangelist/openfigi/refs/heads/main/openapi/openfigi-openapi.json
         type: OpenAPI
     description: >-
       OpenFIGI is your entry point to multiple tools for identifying, mapping and
@@ -49,7 +49,7 @@ common:
   - url: https://www.openfigi.com/docs/faqs
     type: FAQs
 created: 2024-09-27T00:00:00Z
-modified: '2026-03-16'
+modified: '2026-04-28'
 description: >-
   OpenFIGI is your entry point to multiple tools for identifying, mapping and requesting
   a free Financial Instrument Global Identifier (FIGI). OpenFIGI is an open system

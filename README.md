@@ -16,7 +16,7 @@ OpenFIGI is your entry point to multiple tools for identifying, mapping and requ
 ## Timestamps
 
 - **Created:** 2024-09-27 00:00:00+00:00 
-- **Modified:** 2026-03-16 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
@@ -36,7 +36,7 @@ OpenFIGI is your entry point to multiple tools for identifying, mapping and requ
 - [Example](https://www.openfigi.com/api#examples-on-github)
 - [Rate Limits](ttps://www.openfigi.com/api#rate-limit)
 - [Status Codes](https://www.openfigi.com/api#status-code)
-- [OpenAPI](https://api.openfigi.com/schema)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/openfigi/refs/heads/main/openapi/openfigi-openapi.json)
 
 ## Common Properties
 
