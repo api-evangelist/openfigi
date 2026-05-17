@@ -17,7 +17,7 @@ apis:
       - url: https://www.openfigi.com/api#examples-on-github
         type: Example
       - url: ttps://www.openfigi.com/api#rate-limit
-        type: Rate Limits
+        type: RateLimits
       - url: https://www.openfigi.com/api#status-code
         type: Status Codes
       - url: https://raw.githubusercontent.com/api-evangelist/openfigi/refs/heads/main/openapi/openfigi-openapi.json
