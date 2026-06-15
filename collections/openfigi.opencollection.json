@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenFIGI API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "POST /mapping",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.openfigi.com/{basePath}/mapping",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Allows mapping from third-party identifiers to FIGIs."
+    },
+    {
+      "info": {
+        "name": "GET /mapping/values/{key}",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.openfigi.com/{basePath}/mapping/values/:key",
+        "params": [
+          {
+            "name": "key",
+            "value": "",
+            "type": "path",
+            "description": "Key of MappingJob for which to get possible values."
+          }
+        ]
+      },
+      "docs": "Get values for enum-like fields."
+    },
+    {
+      "info": {
+        "name": "POST /search",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.openfigi.com/{basePath}/search",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Search for FIGIs using key words and other filters."
+    },
+    {
+      "info": {
+        "name": "POST /filter",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.openfigi.com/{basePath}/filter",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Search for FIGIs using key words and other filters. The results are listed alphabetically by FIGI and include the number of results."
+    }
+  ],
+  "bundled": true
+}
