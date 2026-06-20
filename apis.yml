@@ -6,7 +6,7 @@ apis:
     tags:
       - Financial
       - Instruments
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.openfigi.com
     humanURL: https://www.openfigi.com/
     properties:
@@ -31,7 +31,7 @@ tags:
   - Financial
   - Instruments
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 common:
   - type: GitHubOrganization
     url: https://github.com/OpenFIGI
