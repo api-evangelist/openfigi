@@ -13,11 +13,11 @@ apis:
       - url: https://www.openfigi.com/api
         type: Documentation
       - url: https://www.openfigi.com/api#examples-on-github
-        type: Example
+        type: Examples
       - url: ttps://www.openfigi.com/api#rate-limit
         type: RateLimits
       - url: https://www.openfigi.com/api#status-code
-        type: Status Codes
+        type: ErrorCodes
       - url: https://raw.githubusercontent.com/api-evangelist/openfigi/refs/heads/main/openapi/openfigi-openapi.json
         type: OpenAPI
     description: >-
@@ -42,11 +42,11 @@ common:
   - url: https://www.openfigi.com/user/login
     type: Login
   - url: https://www.openfigi.com/user/signup
-    type: Sign-Up
+    type: Signup
   - url: https://www.openfigi.com/feedback
     type: Contact
   - url: https://www.openfigi.com/docs/faqs
-    type: FAQs
+    type: FAQ
 created: 2024-09-27T00:00:00.000Z
 modified: '2026-05-19'
 description: >-
