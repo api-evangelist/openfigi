@@ -33,6 +33,10 @@ tags:
 type: Index
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 common:
+  - type: DomainSecurity
+    url: security/openfigi-domain-security.yml
+  - type: Authentication
+    url: authentication/openfigi-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/OpenFIGI
   - url: https://www.openfigi.com/about
@@ -47,6 +51,8 @@ common:
     type: Contact
   - url: https://www.openfigi.com/docs/faqs
     type: FAQ
+  - url: https://www.openfigi.com/about/news
+    type: Blog
 created: 2024-09-27T00:00:00.000Z
 modified: '2026-05-19'
 description: >-
