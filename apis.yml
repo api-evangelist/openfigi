@@ -33,6 +33,8 @@ tags:
 type: Index
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 common:
+  - type: AgenticAccess
+    url: agentic-access/openfigi-agentic-access.yml
   - type: DomainSecurity
     url: security/openfigi-domain-security.yml
   - type: Authentication
