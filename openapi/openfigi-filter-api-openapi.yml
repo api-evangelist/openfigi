@@ -1,0 +1,422 @@
+openapi: 3.0.0
+info:
+  title: OpenFIGI Filter API
+  description: A free & open API for FIGI discovery.
+  termsOfService: https://openfigi.com/docs/terms-of-service
+  contact:
+    name: OpenFIGI API Support
+    url: https://www.openfigi.com/feedback
+    email: support@openfigi.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 2.0.0
+servers:
+- url: https://api.openfigi.com/{basePath}
+  description: Production Tier
+  variables:
+    basePath:
+      default: v3
+      enum:
+      - v3
+      - v2
+security:
+- {}
+- ApiKeyAuth: []
+tags:
+- name: Filter
+paths:
+  /filter:
+    post:
+      description: Search for FIGIs using key words and other filters. The results are listed alphabetically by FIGI and include the number of results.
+      requestBody:
+        description: Filter query object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterRequest'
+            examples:
+              simple:
+                $ref: '#/components/examples/simpleFilterRequest'
+      responses:
+        '200':
+          description: A list of FIGIs and their metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterResponse'
+        '400':
+          description: Invalid request (body).
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+              examples:
+                generic:
+                  value: Bad request.
+                invalid_enum:
+                  value: Invalid enum field.
+        '401':
+          description: Unauthorized.
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+                example: Invalid API key.
+        '405':
+          description: Method Not Allowed.
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+                example: Invalid HTTP method.
+        '406':
+          description: Not Acceptable.
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+                example: Unsupported 'Accept' type.
+        '415':
+          description: Unsupported Media Type.
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+                example: Invalid Content-Type. Should be text/json or application/json with valid charset.
+        '429':
+          description: Too Many Requests.
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+                example: Rate limit reached. Please back off your requests.
+        '500':
+          description: Internal Server Error.
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+                example: Internal server error.
+        '503':
+          description: Service Unavailable.
+          content:
+            text/html; charset=utf-8:
+              schema:
+                type: string
+                example: Service Unavailable.
+      tags:
+      - Filter
+components:
+  schemas:
+    StateCode:
+      type: string
+      nullable: true
+      enum:
+      - AB
+      - AC
+      - AH
+      - AK
+      - AL
+      - AM
+      - AR
+      - AS
+      - AT
+      - AZ
+      - BC
+      - BJ
+      - CA
+      - CB
+      - CO
+      - CQ
+      - CT
+      - CZ
+      - DC
+      - DE
+      - EH
+      - FH
+      - FI
+      - FJ
+      - FL
+      - FO
+      - FS
+      - GA
+      - GD
+      - GF
+      - GM
+      - GS
+      - GU
+      - GX
+      - GZ
+      - HA
+      - HB
+      - HE
+      - HG
+      - HI
+      - HL
+      - HN
+      - HO
+      - HS
+      - IA
+      - ID
+      - IG
+      - IK
+      - IL
+      - IN
+      - IT
+      - JL
+      - JS
+      - JX
+      - KA
+      - KC
+      - KN
+      - KO
+      - KS
+      - KT
+      - KU
+      - KY
+      - LA
+      - LN
+      - MA
+      - MB
+      - MD
+      - ME
+      - MG
+      - MI
+      - MN
+      - MO
+      - MS
+      - MT
+      - MZ
+      - NB
+      - NC
+      - ND
+      - NE
+      - NG
+      - NH
+      - NJ
+      - NL
+      - NM
+      - NN
+      - NR
+      - NS
+      - NT
+      - NU
+      - NV
+      - NW
+      - NX
+      - NY
+      - OH
+      - OK
+      - 'ON'
+      - OR
+      - OS
+      - OT
+      - OY
+      - PA
+      - PE
+      - PR
+      - QC
+      - QH
+      - QL
+      - RI
+      - SA
+      - SC
+      - SD
+      - SH
+      - SI
+      - SK
+      - SN
+      - ST
+      - SX
+      - SZ
+      - TA
+      - TG
+      - TJ
+      - TK
+      - TN
+      - TS
+      - TT
+      - TX
+      - TY
+      - UT
+      - VA
+      - VI
+      - VT
+      - WA
+      - WI
+      - WK
+      - WV
+      - WY
+      - XJ
+      - XZ
+      - YA
+      - YN
+      - YT
+      - YU
+      - ZJ
+    FilterRequest:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/SearchRequest'
+    FigiResult:
+      type: object
+      properties:
+        figi:
+          type: string
+          example: BBG000B9XVV8
+        securityType:
+          type: string
+          nullable: true
+          example: Common Stock
+        marketSector:
+          type: string
+          nullable: true
+          example: Equity
+        ticker:
+          type: string
+          nullable: true
+          example: AAPL
+        name:
+          type: string
+          nullable: true
+          example: APPLE INC
+        exchCode:
+          type: string
+          nullable: true
+          example: UN
+        shareClassFIGI:
+          type: string
+          nullable: true
+          example: BBG001S5N8V8
+        compositeFIGI:
+          type: string
+          nullable: true
+          example: BBG000B9XRY4
+        securityType2:
+          type: string
+          nullable: true
+          example: Common Stock
+        securityDescription:
+          type: string
+          nullable: true
+          example: AAPL
+        metadata:
+          type: string
+          description: Exists when API is unable to show non-FIGI fields.
+          nullable: true
+    CommonSearchMappingRequest:
+      type: object
+      properties:
+        exchCode:
+          type: string
+          nullable: true
+          example: US
+        micCode:
+          type: string
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        marketSecDes:
+          type: string
+          nullable: true
+        securityType:
+          type: string
+          nullable: true
+          example: Equity Option
+        securityType2:
+          type: string
+          nullable: true
+          example: Option
+        includeUnlistedEquities:
+          type: boolean
+          nullable: true
+        optionType:
+          type: string
+          nullable: true
+          enum:
+          - Put
+          - Call
+        strike:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        contractSize:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        coupon:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        expiration:
+          $ref: '#/components/schemas/NullableDateInterval'
+        maturity:
+          $ref: '#/components/schemas/NullableDateInterval'
+        stateCode:
+          $ref: '#/components/schemas/StateCode'
+    FilterResponseElement:
+      type: object
+      properties:
+        total:
+          type: number
+          example: 1255917
+      allOf:
+      - $ref: '#/components/schemas/SearchResponseElement'
+    SearchRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          example: Apple
+        start:
+          type: string
+          description: The number of results returned for any given request is fixed. When more results are accessible, the response will contain a next property whose value should be sent in succeeding requests as the value of the start property. This will notify the API to return the next "page" of results.
+          example: QW9Fc1FrSkhNREF3TVZKWVJrUTAgMQ==.dannV9BsO7PRuiC2NdA2wVaJLH3fRpeeWnu3HNM73t0=
+      description: At least one property in the request object must be populated.
+      allOf:
+      - $ref: '#/components/schemas/CommonSearchMappingRequest'
+    SearchResponseElement:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FigiResult'
+        error:
+          type: string
+          nullable: true
+          example: query must be a non-empty string.
+        next:
+          type: string
+          nullable: true
+          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
+    NullableNumberInterval:
+      maxItems: 2
+      minItems: 2
+      type: array
+      description: At least one entry should be non-null.
+      nullable: true
+      items:
+        type: number
+        nullable: true
+    FilterResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterResponseElement'
+    NullableDateInterval:
+      maxItems: 2
+      minItems: 2
+      type: array
+      description: At least one entry should be non-null.
+      nullable: true
+      items:
+        type: string
+        format: date
+        nullable: true
+  examples:
+    simpleFilterRequest:
+      summary: Simple filter request
+      value:
+        query: ibm
+        exchCode: US
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: X-OPENFIGI-APIKEY
+      in: header
