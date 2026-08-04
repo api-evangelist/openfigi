@@ -1,0 +1,18 @@
+{
+  "provider": "openfigi",
+  "sources": [
+    "openfigi-filter-api-openapi.yml",
+    "openfigi-mapping-api-openapi.yml",
+    "openfigi-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "openfigi-filter-api-openapi.yml",
+    "openfigi-mapping-api-openapi.yml",
+    "openfigi-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
