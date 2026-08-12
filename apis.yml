@@ -15,8 +15,6 @@ apis:
     url: https://www.openfigi.com/api
   - type: Examples
     url: https://www.openfigi.com/api#examples-on-github
-  - type: RateLimits
-    url: ttps://www.openfigi.com/api#rate-limit
   - type: ErrorCodes
     url: https://www.openfigi.com/api#status-code
 - aid: openfigi:openfigi-mapping-api
@@ -33,8 +31,6 @@ apis:
     url: https://www.openfigi.com/api
   - type: Examples
     url: https://www.openfigi.com/api#examples-on-github
-  - type: RateLimits
-    url: ttps://www.openfigi.com/api#rate-limit
   - type: ErrorCodes
     url: https://www.openfigi.com/api#status-code
 - aid: openfigi:openfigi-search-api
@@ -51,8 +47,6 @@ apis:
     url: https://www.openfigi.com/api
   - type: Examples
     url: https://www.openfigi.com/api#examples-on-github
-  - type: RateLimits
-    url: ttps://www.openfigi.com/api#rate-limit
   - type: ErrorCodes
     url: https://www.openfigi.com/api#status-code
 name: OpenFIGI
