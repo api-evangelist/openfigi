@@ -1,0 +1,1059 @@
+{
+  "item": [
+    {
+      "id": "f6611791-00ab-4f9c-b1d1-ff115241b635",
+      "name": "Mapping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6e7b164-ceb6-4633-a508-65707312964e",
+          "name": "Allows mapping from third-party identifiers to FIGIs.",
+          "request": {
+            "name": "Allows mapping from third-party identifiers to FIGIs.",
+            "description": {
+              "content": "Allows mapping from third-party identifiers to FIGIs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mapping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of v3,v2)",
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"idType\": \"<string>\",\n    \"idValue\": \"<string>\",\n    \"exchCode\": \"<string>\",\n    \"micCode\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"marketSecDes\": \"<string>\",\n    \"securityType\": \"<string>\",\n    \"securityType2\": \"<string>\",\n    \"includeUnlistedEquities\": \"<boolean>\",\n    \"optionType\": \"<string>\",\n    \"strike\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"contractSize\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"coupon\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"expiration\": [\n      \"<date>\",\n      \"<date>\"\n    ],\n    \"maturity\": [\n      \"<date>\",\n      \"<date>\"\n    ],\n    \"stateCode\": \"<string>\"\n  },\n  {\n    \"idType\": \"<string>\",\n    \"idValue\": \"<string>\",\n    \"exchCode\": \"<string>\",\n    \"micCode\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"marketSecDes\": \"<string>\",\n    \"securityType\": \"<string>\",\n    \"securityType2\": \"<string>\",\n    \"includeUnlistedEquities\": \"<boolean>\",\n    \"optionType\": \"<string>\",\n    \"strike\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"contractSize\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"coupon\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"expiration\": [\n      \"<date>\",\n      \"<date>\"\n    ],\n    \"maturity\": [\n      \"<date>\",\n      \"<date>\"\n    ],\n    \"stateCode\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ccf48cf-7ed9-471e-afbf-6ee4ac33565a",
+              "name": "A list of FIGIs and their metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"data\": [\n      {\n        \"figi\": \"BBG000B9XVV8\",\n        \"securityType\": \"Common Stock\",\n        \"marketSector\": \"Equity\",\n        \"ticker\": \"AAPL\",\n        \"name\": \"APPLE INC\",\n        \"exchCode\": \"UN\",\n        \"shareClassFIGI\": \"BBG001S5N8V8\",\n        \"compositeFIGI\": \"BBG000B9XRY4\",\n        \"securityType2\": \"Common Stock\",\n        \"securityDescription\": \"AAPL\",\n        \"metadata\": \"string\"\n      },\n      {\n        \"figi\": \"BBG000B9XVV8\",\n        \"securityType\": \"Common Stock\",\n        \"marketSector\": \"Equity\",\n        \"ticker\": \"AAPL\",\n        \"name\": \"APPLE INC\",\n        \"exchCode\": \"UN\",\n        \"shareClassFIGI\": \"BBG001S5N8V8\",\n        \"compositeFIGI\": \"BBG000B9XRY4\",\n        \"securityType2\": \"Common Stock\",\n        \"securityDescription\": \"AAPL\",\n        \"metadata\": \"string\"\n      }\n    ]\n  },\n  {\n    \"data\": [\n      {\n        \"figi\": \"BBG000B9XVV8\",\n        \"securityType\": \"Common Stock\",\n        \"marketSector\": \"Equity\",\n        \"ticker\": \"AAPL\",\n        \"name\": \"APPLE INC\",\n        \"exchCode\": \"UN\",\n        \"shareClassFIGI\": \"BBG001S5N8V8\",\n        \"compositeFIGI\": \"BBG000B9XRY4\",\n        \"securityType2\": \"Common Stock\",\n        \"securityDescription\": \"AAPL\",\n        \"metadata\": \"string\"\n      },\n      {\n        \"figi\": \"BBG000B9XVV8\",\n        \"securityType\": \"Common Stock\",\n        \"marketSector\": \"Equity\",\n        \"ticker\": \"AAPL\",\n        \"name\": \"APPLE INC\",\n        \"exchCode\": \"UN\",\n        \"shareClassFIGI\": \"BBG001S5N8V8\",\n        \"compositeFIGI\": \"BBG000B9XRY4\",\n        \"securityType2\": \"Common Stock\",\n        \"securityDescription\": \"AAPL\",\n        \"metadata\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8ecc0f1-c856-4852-a685-da04af719ac9",
+              "name": "Invalid request (body).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Bad request.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f4c2f3f-efe1-4cb3-a2b0-83c92ef5acf0",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid API key.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3795b0a-9c02-4659-b072-d59d6c91576e",
+              "name": "Method Not Allowed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid HTTP method.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ce0a6e2f-c339-46ae-a7a1-168101f79cd6",
+              "name": "Not Acceptable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Unsupported 'Accept' type.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cda07690-edb7-4d09-ad7c-687a44869126",
+              "name": "Unsupported Media Type.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid Content-Type. Should be text/json or application/json with valid charset.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "34c1d2f7-ef1e-44bb-b027-dfe9b2bfeba0",
+              "name": "Too Many Requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Rate limit reached. Please back off your requests.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df018819-6306-42c9-94bc-54697a9c8a38",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Internal server error.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee04990c-35ea-43e1-b775-9de11b913fab",
+              "name": "Service Unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"idType\": \"ID_BB_GLOBAL\",\n    \"idValue\": \"BBG000BLNNH6\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Service Unavailable.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cc83433-ebc9-4ac8-80f6-8f11045093a8",
+          "name": "Get values for enum-like fields.",
+          "request": {
+            "name": "Get values for enum-like fields.",
+            "description": {
+              "content": "Get values for enum-like fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mapping",
+                "values",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) Key of MappingJob for which to get possible values."
+                },
+                {
+                  "description": " (This can only be one of v3,v2)",
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee12d25b-4629-4f77-bc0d-a5804e952c49",
+              "name": "The list of values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"ID_BB\",\n  \"ID_CINS\",\n  \"ID_CUSIP\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ff3532e-71fe-4f7e-909e-752adb2e75bd",
+              "name": "Invalid request (body).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Bad request.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0319aa0-5cd9-4cf7-9a6d-53f9b62edac3",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid API key.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6e47793-a1f7-4945-973d-4f9988e1df7d",
+              "name": "Method Not Allowed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid HTTP method.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d0ddf66a-4147-495e-9f9a-4cc6593351bb",
+              "name": "Not Acceptable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Unsupported 'Accept' type.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e19b992e-89cc-4ede-bdbf-d900bd94ab1a",
+              "name": "Unsupported Media Type.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid Content-Type. Should be text/json or application/json with valid charset.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2fceb40-ee56-4829-93a6-fda8eba5378c",
+              "name": "Too Many Requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Rate limit reached. Please back off your requests.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c7742e48-f71b-459a-bad5-1a5d20fca2f1",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Internal server error.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9df58b8c-69ed-4290-8567-6060abe98aa3",
+              "name": "Service Unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mapping",
+                    "values",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) Key of MappingJob for which to get possible values."
+                    },
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Service Unavailable.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": " (This can only be one of v3,v2)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "v3",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.openfigi.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "c0af19c2-9db1-4f79-8897-fc33f72420b8",
+    "name": "OpenFIGI Filter Mapping API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A free & open API for FIGI discovery.\n\nContact Support:\n Name: OpenFIGI API Support\n Email: support@openfigi.com",
+      "type": "text/plain"
+    }
+  }
+}

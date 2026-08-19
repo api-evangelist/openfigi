@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenFIGI Filter API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Filter",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST /filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.openfigi.com/{basePath}/filter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search for FIGIs using key words and other filters. The results are listed alphabetically by FIGI and include the number of results."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

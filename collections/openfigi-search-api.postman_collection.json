@@ -1,0 +1,549 @@
+{
+  "item": [
+    {
+      "id": "28c04be3-1a1b-4849-9106-4b2d44299be7",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05af16f4-8a79-4f12-91ba-22e2c7b56c58",
+          "name": "Search for FIGIs using key words and other filters.",
+          "request": {
+            "name": "Search for FIGIs using key words and other filters.",
+            "description": {
+              "content": "Search for FIGIs using key words and other filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": " (This can only be one of v3,v2)",
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"start\": \"<string>\",\n  \"exchCode\": \"<string>\",\n  \"micCode\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"marketSecDes\": \"<string>\",\n  \"securityType\": \"<string>\",\n  \"securityType2\": \"<string>\",\n  \"includeUnlistedEquities\": \"<boolean>\",\n  \"optionType\": \"<string>\",\n  \"strike\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"contractSize\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"coupon\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"expiration\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"maturity\": [\n    \"<date>\",\n    \"<date>\"\n  ],\n  \"stateCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a3ff8d8-4f89-4ca1-935e-d54346e623b2",
+              "name": "A list of FIGIs and their metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"data\": [\n      {\n        \"figi\": \"BBG000B9XVV8\",\n        \"securityType\": \"Common Stock\",\n        \"marketSector\": \"Equity\",\n        \"ticker\": \"AAPL\",\n        \"name\": \"APPLE INC\",\n        \"exchCode\": \"UN\",\n        \"shareClassFIGI\": \"BBG001S5N8V8\",\n        \"compositeFIGI\": \"BBG000B9XRY4\",\n        \"securityType2\": \"Common Stock\",\n        \"securityDescription\": \"AAPL\",\n        \"metadata\": \"string\"\n      },\n      {\n        \"figi\": \"BBG000B9XVV8\",\n        \"securityType\": \"Common Stock\",\n        \"marketSector\": \"Equity\",\n        \"ticker\": \"AAPL\",\n        \"name\": \"APPLE INC\",\n        \"exchCode\": \"UN\",\n        \"shareClassFIGI\": \"BBG001S5N8V8\",\n        \"compositeFIGI\": \"BBG000B9XRY4\",\n        \"securityType2\": \"Common Stock\",\n        \"securityDescription\": \"AAPL\",\n        \"metadata\": \"string\"\n      }\n    ],\n    \"error\": \"query must be a non-empty string.\",\n    \"next\": \"QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=\"\n  },\n  {\n    \"data\": [\n      {\n        \"figi\": \"BBG000B9XVV8\",\n        \"securityType\": \"Common Stock\",\n        \"marketSector\": \"Equity\",\n        \"ticker\": \"AAPL\",\n        \"name\": \"APPLE INC\",\n        \"exchCode\": \"UN\",\n        \"shareClassFIGI\": \"BBG001S5N8V8\",\n        \"compositeFIGI\": \"BBG000B9XRY4\",\n        \"securityType2\": \"Common Stock\",\n        \"securityDescription\": \"AAPL\",\n        \"metadata\": \"string\"\n      },\n      {\n        \"figi\": \"BBG000B9XVV8\",\n        \"securityType\": \"Common Stock\",\n        \"marketSector\": \"Equity\",\n        \"ticker\": \"AAPL\",\n        \"name\": \"APPLE INC\",\n        \"exchCode\": \"UN\",\n        \"shareClassFIGI\": \"BBG001S5N8V8\",\n        \"compositeFIGI\": \"BBG000B9XRY4\",\n        \"securityType2\": \"Common Stock\",\n        \"securityDescription\": \"AAPL\",\n        \"metadata\": \"string\"\n      }\n    ],\n    \"error\": \"query must be a non-empty string.\",\n    \"next\": \"QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "603527c8-cc71-4504-9271-e3065f21d930",
+              "name": "Invalid request (body).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Bad request.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4fabffa4-a090-41f3-8b60-78bb80fc42c3",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid API key.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31e09e64-0c1d-4758-9708-870105d84a0d",
+              "name": "Method Not Allowed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid HTTP method.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8827261f-e82e-4b20-8e44-0cadddd1a097",
+              "name": "Not Acceptable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Unsupported 'Accept' type.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "003bb1bc-bc2e-482e-96fd-54fef50a0d2b",
+              "name": "Unsupported Media Type.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Invalid Content-Type. Should be text/json or application/json with valid charset.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c394754-f7aa-49e6-b6c0-6100e73ed7f9",
+              "name": "Too Many Requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Rate limit reached. Please back off your requests.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b559353-ea1b-4883-8555-aafe09142f93",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Internal server error.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ffb8bf53-5798-47c4-967a-3b08d53c6a8f",
+              "name": "Service Unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": " (This can only be one of v3,v2)",
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html; charset=utf-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"ibm\",\n  \"exchCode\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=utf-8"
+                }
+              ],
+              "body": "Service Unavailable.",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": " (This can only be one of v3,v2)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "v3",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.openfigi.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "44f49914-6f9f-47bd-8c13-0efdb8f36294",
+    "name": "OpenFIGI Filter Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A free & open API for FIGI discovery.\n\nContact Support:\n Name: OpenFIGI API Support\n Email: support@openfigi.com",
+      "type": "text/plain"
+    }
+  }
+}
