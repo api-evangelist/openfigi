@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: OpenFIGI Filter API
   description: A free & open API for FIGI discovery.
@@ -107,11 +107,45 @@ paths:
                 example: Service Unavailable.
       tags:
       - Filter
+      summary: Create filter
+      x-summary-source: derived
+      operationId: postFilter
+      x-operation-id-source: derived
 components:
   schemas:
+    NullableDateInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - string
+        - 'null'
+        format: date
+    SearchResponseElement:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FigiResult'
+        error:
+          type:
+          - string
+          - 'null'
+          example: query must be a non-empty string.
+        next:
+          type:
+          - string
+          - 'null'
+          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
     StateCode:
-      type: string
-      nullable: true
+      type:
+      - string
+      - 'null'
       enum:
       - AB
       - AC
@@ -255,10 +289,19 @@ components:
       - YT
       - YU
       - ZJ
-    FilterRequest:
+    SearchRequest:
       type: object
+      properties:
+        query:
+          type: string
+          example: Apple
+        start:
+          type: string
+          description: The number of results returned for any given request is fixed. When more results are accessible, the response will contain a next property whose value should be sent in succeeding requests as the value of the start property. This will notify the API to return the next "page" of results.
+          example: QW9Fc1FrSkhNREF3TVZKWVJrUTAgMQ==.dannV9BsO7PRuiC2NdA2wVaJLH3fRpeeWnu3HNM73t0=
+      description: At least one property in the request object must be populated.
       allOf:
-      - $ref: '#/components/schemas/SearchRequest'
+      - $ref: '#/components/schemas/CommonSearchMappingRequest'
     FigiResult:
       type: object
       properties:
@@ -266,75 +309,104 @@ components:
           type: string
           example: BBG000B9XVV8
         securityType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Common Stock
         marketSector:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Equity
         ticker:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: AAPL
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: APPLE INC
         exchCode:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: UN
         shareClassFIGI:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: BBG001S5N8V8
         compositeFIGI:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: BBG000B9XRY4
         securityType2:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Common Stock
         securityDescription:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: AAPL
         metadata:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Exists when API is unable to show non-FIGI fields.
-          nullable: true
+    NullableNumberInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - number
+        - 'null'
     CommonSearchMappingRequest:
       type: object
       properties:
         exchCode:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: US
         micCode:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         currency:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         marketSecDes:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         securityType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Equity Option
         securityType2:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: Option
         includeUnlistedEquities:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         optionType:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           enum:
           - Put
           - Call
@@ -358,57 +430,14 @@ components:
           example: 1255917
       allOf:
       - $ref: '#/components/schemas/SearchResponseElement'
-    SearchRequest:
-      type: object
-      properties:
-        query:
-          type: string
-          example: Apple
-        start:
-          type: string
-          description: The number of results returned for any given request is fixed. When more results are accessible, the response will contain a next property whose value should be sent in succeeding requests as the value of the start property. This will notify the API to return the next "page" of results.
-          example: QW9Fc1FrSkhNREF3TVZKWVJrUTAgMQ==.dannV9BsO7PRuiC2NdA2wVaJLH3fRpeeWnu3HNM73t0=
-      description: At least one property in the request object must be populated.
-      allOf:
-      - $ref: '#/components/schemas/CommonSearchMappingRequest'
-    SearchResponseElement:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/FigiResult'
-        error:
-          type: string
-          nullable: true
-          example: query must be a non-empty string.
-        next:
-          type: string
-          nullable: true
-          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
-    NullableNumberInterval:
-      maxItems: 2
-      minItems: 2
-      type: array
-      description: At least one entry should be non-null.
-      nullable: true
-      items:
-        type: number
-        nullable: true
     FilterResponse:
       type: array
       items:
         $ref: '#/components/schemas/FilterResponseElement'
-    NullableDateInterval:
-      maxItems: 2
-      minItems: 2
-      type: array
-      description: At least one entry should be non-null.
-      nullable: true
-      items:
-        type: string
-        format: date
-        nullable: true
+    FilterRequest:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/SearchRequest'
   examples:
     simpleFilterRequest:
       summary: Simple filter request

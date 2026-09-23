@@ -1,9 +1,7 @@
 {
   "provider": "openfigi",
   "sources": [
-    "openfigi-filter-api-openapi.yml",
-    "openfigi-mapping-api-openapi.yml",
-    "openfigi-search-api-openapi.yml"
+    "_original/openfigi-openapi.json"
   ],
   "outputs": [
     "openfigi-filter-api-openapi.yml",
@@ -13,6 +11,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openfigi-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "openfigi-openapi.json: tagged paths POST /mapping -> Mapping",
+    "openfigi-openapi.json: tagged paths GET /mapping/values/{key} -> Mapping",
+    "openfigi-openapi.json: tagged paths POST /search -> Search",
+    "openfigi-openapi.json: tagged paths POST /filter -> Filter",
+    "openfigi-openapi.json: declared missing tag: Filter",
+    "openfigi-openapi.json: declared missing tag: Mapping",
+    "openfigi-openapi.json: declared missing tag: Search",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "openfigi-filter-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openfigi-mapping-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openfigi-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
