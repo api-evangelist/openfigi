@@ -125,23 +125,10 @@ components:
         - string
         - 'null'
         format: date
-    SearchResponseElement:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/FigiResult'
-        error:
-          type:
-          - string
-          - 'null'
-          example: query must be a non-empty string.
-        next:
-          type:
-          - string
-          - 'null'
-          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
+    SearchResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/SearchResponseElement'
     StateCode:
       type:
       - string
@@ -302,6 +289,17 @@ components:
       description: At least one property in the request object must be populated.
       allOf:
       - $ref: '#/components/schemas/CommonSearchMappingRequest'
+    NullableNumberInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - number
+        - 'null'
     FigiResult:
       type: object
       properties:
@@ -358,17 +356,6 @@ components:
           - string
           - 'null'
           description: Exists when API is unable to show non-FIGI fields.
-    NullableNumberInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - number
-        - 'null'
     CommonSearchMappingRequest:
       type: object
       properties:
@@ -422,10 +409,23 @@ components:
           $ref: '#/components/schemas/NullableDateInterval'
         stateCode:
           $ref: '#/components/schemas/StateCode'
-    SearchResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/SearchResponseElement'
+    SearchResponseElement:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FigiResult'
+        error:
+          type:
+          - string
+          - 'null'
+          example: query must be a non-empty string.
+        next:
+          type:
+          - string
+          - 'null'
+          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
   examples:
     simpleSearchRequest:
       summary: Simple search request

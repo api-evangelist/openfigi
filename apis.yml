@@ -51,6 +51,9 @@ apis:
     url: https://www.openfigi.com/api#status-code
 name: OpenFIGI
 tags:
+  - Finance
+  - Instruments
+tags_raw:
   - Financial
   - Instruments
 type: Index
