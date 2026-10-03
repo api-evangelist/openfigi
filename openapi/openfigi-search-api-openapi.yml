@@ -113,22 +113,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    NullableDateInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - string
-        - 'null'
-        format: date
-    SearchResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/SearchResponseElement'
     StateCode:
       type:
       - string
@@ -276,6 +260,59 @@ components:
       - YT
       - YU
       - ZJ
+    CommonSearchMappingRequest:
+      type: object
+      properties:
+        exchCode:
+          type:
+          - string
+          - 'null'
+          example: US
+        micCode:
+          type:
+          - string
+          - 'null'
+        currency:
+          type:
+          - string
+          - 'null'
+        marketSecDes:
+          type:
+          - string
+          - 'null'
+        securityType:
+          type:
+          - string
+          - 'null'
+          example: Equity Option
+        securityType2:
+          type:
+          - string
+          - 'null'
+          example: Option
+        includeUnlistedEquities:
+          type:
+          - boolean
+          - 'null'
+        optionType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Put
+          - Call
+        strike:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        contractSize:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        coupon:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        expiration:
+          $ref: '#/components/schemas/NullableDateInterval'
+        maturity:
+          $ref: '#/components/schemas/NullableDateInterval'
+        stateCode:
+          $ref: '#/components/schemas/StateCode'
     SearchRequest:
       type: object
       properties:
@@ -289,7 +326,7 @@ components:
       description: At least one property in the request object must be populated.
       allOf:
       - $ref: '#/components/schemas/CommonSearchMappingRequest'
-    NullableNumberInterval:
+    NullableDateInterval:
       maxItems: 2
       minItems: 2
       type:
@@ -298,8 +335,26 @@ components:
       description: At least one entry should be non-null.
       items:
         type:
-        - number
+        - string
         - 'null'
+        format: date
+    SearchResponseElement:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FigiResult'
+        error:
+          type:
+          - string
+          - 'null'
+          example: query must be a non-empty string.
+        next:
+          type:
+          - string
+          - 'null'
+          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
     FigiResult:
       type: object
       properties:
@@ -356,76 +411,21 @@ components:
           - string
           - 'null'
           description: Exists when API is unable to show non-FIGI fields.
-    CommonSearchMappingRequest:
-      type: object
-      properties:
-        exchCode:
-          type:
-          - string
-          - 'null'
-          example: US
-        micCode:
-          type:
-          - string
-          - 'null'
-        currency:
-          type:
-          - string
-          - 'null'
-        marketSecDes:
-          type:
-          - string
-          - 'null'
-        securityType:
-          type:
-          - string
-          - 'null'
-          example: Equity Option
-        securityType2:
-          type:
-          - string
-          - 'null'
-          example: Option
-        includeUnlistedEquities:
-          type:
-          - boolean
-          - 'null'
-        optionType:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Put
-          - Call
-        strike:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        contractSize:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        coupon:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        expiration:
-          $ref: '#/components/schemas/NullableDateInterval'
-        maturity:
-          $ref: '#/components/schemas/NullableDateInterval'
-        stateCode:
-          $ref: '#/components/schemas/StateCode'
-    SearchResponseElement:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/FigiResult'
-        error:
-          type:
-          - string
-          - 'null'
-          example: query must be a non-empty string.
-        next:
-          type:
-          - string
-          - 'null'
-          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
+    NullableNumberInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - number
+        - 'null'
+    SearchResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/SearchResponseElement'
   examples:
     simpleSearchRequest:
       summary: Simple search request

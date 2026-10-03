@@ -224,89 +224,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MappingJobResultFigiList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/FigiResult'
-    NullableDateInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - string
-        - 'null'
-        format: date
-    FigiResult:
-      type: object
-      properties:
-        figi:
-          type: string
-          example: BBG000B9XVV8
-        securityType:
-          type:
-          - string
-          - 'null'
-          example: Common Stock
-        marketSector:
-          type:
-          - string
-          - 'null'
-          example: Equity
-        ticker:
-          type:
-          - string
-          - 'null'
-          example: AAPL
-        name:
-          type:
-          - string
-          - 'null'
-          example: APPLE INC
-        exchCode:
-          type:
-          - string
-          - 'null'
-          example: UN
-        shareClassFIGI:
-          type:
-          - string
-          - 'null'
-          example: BBG001S5N8V8
-        compositeFIGI:
-          type:
-          - string
-          - 'null'
-          example: BBG000B9XRY4
-        securityType2:
-          type:
-          - string
-          - 'null'
-          example: Common Stock
-        securityDescription:
-          type:
-          - string
-          - 'null'
-          example: AAPL
-        metadata:
-          type:
-          - string
-          - 'null'
-          description: Exists when API is unable to show non-FIGI fields.
-    BulkMappingJobResult:
-      type: array
-      items:
-        $ref: '#/components/schemas/MappingJobResult'
-    BulkMappingJob:
-      type: array
-      items:
-        $ref: '#/components/schemas/MappingJob'
     StateCode:
       type:
       - string
@@ -454,68 +371,6 @@ components:
       - YT
       - YU
       - ZJ
-    inline_response_200:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            type: string
-    MappingJob:
-      required:
-      - idType
-      - idValue
-      type: object
-      properties:
-        idType:
-          type: string
-          enum:
-          - ID_ISIN
-          - ID_BB_UNIQUE
-          - ID_SEDOL
-          - ID_COMMON
-          - ID_WERTPAPIER
-          - ID_CUSIP
-          - ID_BB
-          - ID_ITALY
-          - ID_EXCH_SYMBOL
-          - ID_FULL_EXCHANGE_SYMBOL
-          - COMPOSITE_ID_BB_GLOBAL
-          - ID_BB_GLOBAL_SHARE_CLASS_LEVEL
-          - ID_BB_SEC_NUM_DES
-          - ID_BB_GLOBAL
-          - TICKER
-          - ID_CUSIP_8_CHR
-          - OCC_SYMBOL
-          - UNIQUE_ID_FUT_OPT
-          - OPRA_SYMBOL
-          - TRADING_SYSTEM_IDENTIFIER
-          - ID_CINS
-          - ID_SHORT_CODE
-          - BASE_TICKER
-          - VENDOR_INDEX_CODE
-        idValue:
-          oneOf:
-          - type: string
-          - type: integer
-      description: 'For V3: securityType2 is required when idType is BASE_TICKER or ID_EXCH_SYMBOL.  expiration is required when securityType2 is Option or Warrant.  maturity is required when securityType2 is Pool.'
-      allOf:
-      - $ref: '#/components/schemas/CommonSearchMappingRequest'
-    NullableNumberInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - number
-        - 'null'
-    MappingJobResult:
-      oneOf:
-      - $ref: '#/components/schemas/MappingJobResultFigiList'
-      - $ref: '#/components/schemas/MappingJobResultFigiNotFound'
     CommonSearchMappingRequest:
       type: object
       properties:
@@ -569,11 +424,156 @@ components:
           $ref: '#/components/schemas/NullableDateInterval'
         stateCode:
           $ref: '#/components/schemas/StateCode'
+    BulkMappingJob:
+      type: array
+      items:
+        $ref: '#/components/schemas/MappingJob'
+    BulkMappingJobResult:
+      type: array
+      items:
+        $ref: '#/components/schemas/MappingJobResult'
+    MappingJobResult:
+      oneOf:
+      - $ref: '#/components/schemas/MappingJobResultFigiList'
+      - $ref: '#/components/schemas/MappingJobResultFigiNotFound'
+    NullableDateInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - string
+        - 'null'
+        format: date
     MappingJobResultFigiNotFound:
       type: object
       properties:
         warning:
           type: string
+    FigiResult:
+      type: object
+      properties:
+        figi:
+          type: string
+          example: BBG000B9XVV8
+        securityType:
+          type:
+          - string
+          - 'null'
+          example: Common Stock
+        marketSector:
+          type:
+          - string
+          - 'null'
+          example: Equity
+        ticker:
+          type:
+          - string
+          - 'null'
+          example: AAPL
+        name:
+          type:
+          - string
+          - 'null'
+          example: APPLE INC
+        exchCode:
+          type:
+          - string
+          - 'null'
+          example: UN
+        shareClassFIGI:
+          type:
+          - string
+          - 'null'
+          example: BBG001S5N8V8
+        compositeFIGI:
+          type:
+          - string
+          - 'null'
+          example: BBG000B9XRY4
+        securityType2:
+          type:
+          - string
+          - 'null'
+          example: Common Stock
+        securityDescription:
+          type:
+          - string
+          - 'null'
+          example: AAPL
+        metadata:
+          type:
+          - string
+          - 'null'
+          description: Exists when API is unable to show non-FIGI fields.
+    MappingJobResultFigiList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FigiResult'
+    NullableNumberInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - number
+        - 'null'
+    inline_response_200:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: string
+    MappingJob:
+      required:
+      - idType
+      - idValue
+      type: object
+      properties:
+        idType:
+          type: string
+          enum:
+          - ID_ISIN
+          - ID_BB_UNIQUE
+          - ID_SEDOL
+          - ID_COMMON
+          - ID_WERTPAPIER
+          - ID_CUSIP
+          - ID_BB
+          - ID_ITALY
+          - ID_EXCH_SYMBOL
+          - ID_FULL_EXCHANGE_SYMBOL
+          - COMPOSITE_ID_BB_GLOBAL
+          - ID_BB_GLOBAL_SHARE_CLASS_LEVEL
+          - ID_BB_SEC_NUM_DES
+          - ID_BB_GLOBAL
+          - TICKER
+          - ID_CUSIP_8_CHR
+          - OCC_SYMBOL
+          - UNIQUE_ID_FUT_OPT
+          - OPRA_SYMBOL
+          - TRADING_SYSTEM_IDENTIFIER
+          - ID_CINS
+          - ID_SHORT_CODE
+          - BASE_TICKER
+          - VENDOR_INDEX_CODE
+        idValue:
+          oneOf:
+          - type: string
+          - type: integer
+      description: 'For V3: securityType2 is required when idType is BASE_TICKER or ID_EXCH_SYMBOL.  expiration is required when securityType2 is Option or Warrant.  maturity is required when securityType2 is Pool.'
+      allOf:
+      - $ref: '#/components/schemas/CommonSearchMappingRequest'
   examples:
     simpleMappingRequest:
       summary: Simple mapping request
