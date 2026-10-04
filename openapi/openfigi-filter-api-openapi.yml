@@ -113,6 +113,111 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SearchRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          example: Apple
+        start:
+          type: string
+          description: The number of results returned for any given request is fixed. When more results are accessible, the response will contain a next property whose value should be sent in succeeding requests as the value of the start property. This will notify the API to return the next "page" of results.
+          example: QW9Fc1FrSkhNREF3TVZKWVJrUTAgMQ==.dannV9BsO7PRuiC2NdA2wVaJLH3fRpeeWnu3HNM73t0=
+      description: At least one property in the request object must be populated.
+      allOf:
+      - $ref: '#/components/schemas/CommonSearchMappingRequest'
+    CommonSearchMappingRequest:
+      type: object
+      properties:
+        exchCode:
+          type:
+          - string
+          - 'null'
+          example: US
+        micCode:
+          type:
+          - string
+          - 'null'
+        currency:
+          type:
+          - string
+          - 'null'
+        marketSecDes:
+          type:
+          - string
+          - 'null'
+        securityType:
+          type:
+          - string
+          - 'null'
+          example: Equity Option
+        securityType2:
+          type:
+          - string
+          - 'null'
+          example: Option
+        includeUnlistedEquities:
+          type:
+          - boolean
+          - 'null'
+        optionType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Put
+          - Call
+        strike:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        contractSize:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        coupon:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        expiration:
+          $ref: '#/components/schemas/NullableDateInterval'
+        maturity:
+          $ref: '#/components/schemas/NullableDateInterval'
+        stateCode:
+          $ref: '#/components/schemas/StateCode'
+    NullableNumberInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - number
+        - 'null'
+    NullableDateInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - string
+        - 'null'
+        format: date
+    FilterResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/FilterResponseElement'
+    FilterRequest:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/SearchRequest'
+    FilterResponseElement:
+      type: object
+      properties:
+        total:
+          type: number
+          example: 1255917
+      allOf:
+      - $ref: '#/components/schemas/SearchResponseElement'
     StateCode:
       type:
       - string
@@ -260,109 +365,6 @@ components:
       - YT
       - YU
       - ZJ
-    FilterRequest:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/SearchRequest'
-    SearchRequest:
-      type: object
-      properties:
-        query:
-          type: string
-          example: Apple
-        start:
-          type: string
-          description: The number of results returned for any given request is fixed. When more results are accessible, the response will contain a next property whose value should be sent in succeeding requests as the value of the start property. This will notify the API to return the next "page" of results.
-          example: QW9Fc1FrSkhNREF3TVZKWVJrUTAgMQ==.dannV9BsO7PRuiC2NdA2wVaJLH3fRpeeWnu3HNM73t0=
-      description: At least one property in the request object must be populated.
-      allOf:
-      - $ref: '#/components/schemas/CommonSearchMappingRequest'
-    CommonSearchMappingRequest:
-      type: object
-      properties:
-        exchCode:
-          type:
-          - string
-          - 'null'
-          example: US
-        micCode:
-          type:
-          - string
-          - 'null'
-        currency:
-          type:
-          - string
-          - 'null'
-        marketSecDes:
-          type:
-          - string
-          - 'null'
-        securityType:
-          type:
-          - string
-          - 'null'
-          example: Equity Option
-        securityType2:
-          type:
-          - string
-          - 'null'
-          example: Option
-        includeUnlistedEquities:
-          type:
-          - boolean
-          - 'null'
-        optionType:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Put
-          - Call
-        strike:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        contractSize:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        coupon:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        expiration:
-          $ref: '#/components/schemas/NullableDateInterval'
-        maturity:
-          $ref: '#/components/schemas/NullableDateInterval'
-        stateCode:
-          $ref: '#/components/schemas/StateCode'
-    FilterResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/FilterResponseElement'
-    NullableDateInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - string
-        - 'null'
-        format: date
-    SearchResponseElement:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/FigiResult'
-        error:
-          type:
-          - string
-          - 'null'
-          example: query must be a non-empty string.
-        next:
-          type:
-          - string
-          - 'null'
-          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
     FigiResult:
       type: object
       properties:
@@ -419,25 +421,23 @@ components:
           - string
           - 'null'
           description: Exists when API is unable to show non-FIGI fields.
-    FilterResponseElement:
+    SearchResponseElement:
       type: object
       properties:
-        total:
-          type: number
-          example: 1255917
-      allOf:
-      - $ref: '#/components/schemas/SearchResponseElement'
-    NullableNumberInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - number
-        - 'null'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/FigiResult'
+        error:
+          type:
+          - string
+          - 'null'
+          example: query must be a non-empty string.
+        next:
+          type:
+          - string
+          - 'null'
+          example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
   examples:
     simpleFilterRequest:
       summary: Simple filter request
