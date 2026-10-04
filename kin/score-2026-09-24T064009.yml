@@ -1,24 +1,22 @@
-# Kin Score artifact — openfigi — 2026-08-24T171257
+# Kin Score artifact — openfigi — 2026-09-24T064009
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: openfigi
-  schema_version: 0.13.0
-  scored_at: '2026-08-24'
-  run_ts: 2026-08-24T171257
-  composite: 29.2
+  schema_version: 0.22.0
+  scored_at: '2026-09-24'
+  run_ts: 2026-09-24T064009
+  composite: 35.0
   band: thin
   facets:
-    discoverability: 64.8
-    contract_quality: 51.0
-    governance: 0.0
-    operational_transparency: 10.5
-    developer_ergonomics: 14.3
-    commercial_clarity: 28.9
+    discoverability: 59.3
+    contract_quality: 60.5
     contract_governance: 0.0
+    operational_transparency: 10.5
+    developer_ergonomics: 23.8
     access_clarity: 28.9
   agent_readiness:
-    score: 24.8
+    score: 27.7
     band: agent-aware
     dimensions:
       spec_presence: true
@@ -27,7 +25,7 @@ kin_score:
       mcp_server: false
       auth_clarity: bearer
       idempotency: false
-      error_semantics: false
+      error_semantics: documented
       openapi_examples: verified
       rate_limit_signal: documented
       event_surface_described: false
