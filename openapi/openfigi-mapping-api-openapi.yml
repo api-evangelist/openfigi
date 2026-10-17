@@ -223,115 +223,13 @@ paths:
       operationId: getMappingValuesByKey
       x-operation-id-source: derived
 components:
+  examples:
+    simpleMappingRequest:
+      summary: Simple mapping request
+      value:
+      - idType: ID_BB_GLOBAL
+        idValue: BBG000BLNNH6
   schemas:
-    MappingJob:
-      required:
-      - idType
-      - idValue
-      type: object
-      properties:
-        idType:
-          type: string
-          enum:
-          - ID_ISIN
-          - ID_BB_UNIQUE
-          - ID_SEDOL
-          - ID_COMMON
-          - ID_WERTPAPIER
-          - ID_CUSIP
-          - ID_BB
-          - ID_ITALY
-          - ID_EXCH_SYMBOL
-          - ID_FULL_EXCHANGE_SYMBOL
-          - COMPOSITE_ID_BB_GLOBAL
-          - ID_BB_GLOBAL_SHARE_CLASS_LEVEL
-          - ID_BB_SEC_NUM_DES
-          - ID_BB_GLOBAL
-          - TICKER
-          - ID_CUSIP_8_CHR
-          - OCC_SYMBOL
-          - UNIQUE_ID_FUT_OPT
-          - OPRA_SYMBOL
-          - TRADING_SYSTEM_IDENTIFIER
-          - ID_CINS
-          - ID_SHORT_CODE
-          - BASE_TICKER
-          - VENDOR_INDEX_CODE
-        idValue:
-          oneOf:
-          - type: string
-          - type: integer
-      description: 'For V3: securityType2 is required when idType is BASE_TICKER or ID_EXCH_SYMBOL.  expiration is required when securityType2 is Option or Warrant.  maturity is required when securityType2 is Pool.'
-      allOf:
-      - $ref: '#/components/schemas/CommonSearchMappingRequest'
-    CommonSearchMappingRequest:
-      type: object
-      properties:
-        exchCode:
-          type:
-          - string
-          - 'null'
-          example: US
-        micCode:
-          type:
-          - string
-          - 'null'
-        currency:
-          type:
-          - string
-          - 'null'
-        marketSecDes:
-          type:
-          - string
-          - 'null'
-        securityType:
-          type:
-          - string
-          - 'null'
-          example: Equity Option
-        securityType2:
-          type:
-          - string
-          - 'null'
-          example: Option
-        includeUnlistedEquities:
-          type:
-          - boolean
-          - 'null'
-        optionType:
-          type:
-          - string
-          - 'null'
-          enum:
-          - Put
-          - Call
-        strike:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        contractSize:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        coupon:
-          $ref: '#/components/schemas/NullableNumberInterval'
-        expiration:
-          $ref: '#/components/schemas/NullableDateInterval'
-        maturity:
-          $ref: '#/components/schemas/NullableDateInterval'
-        stateCode:
-          $ref: '#/components/schemas/StateCode'
-    NullableNumberInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - number
-        - 'null'
-    BulkMappingJobResult:
-      type: array
-      items:
-        $ref: '#/components/schemas/MappingJobResult'
     MappingJobResult:
       oneOf:
       - $ref: '#/components/schemas/MappingJobResultFigiList'
@@ -397,22 +295,59 @@ components:
       properties:
         warning:
           type: string
-    NullableDateInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - string
-        - 'null'
-        format: date
-    BulkMappingJob:
-      type: array
-      items:
-        $ref: '#/components/schemas/MappingJob'
+    CommonSearchMappingRequest:
+      type: object
+      properties:
+        exchCode:
+          type:
+          - string
+          - 'null'
+          example: US
+        micCode:
+          type:
+          - string
+          - 'null'
+        currency:
+          type:
+          - string
+          - 'null'
+        marketSecDes:
+          type:
+          - string
+          - 'null'
+        securityType:
+          type:
+          - string
+          - 'null'
+          example: Equity Option
+        securityType2:
+          type:
+          - string
+          - 'null'
+          example: Option
+        includeUnlistedEquities:
+          type:
+          - boolean
+          - 'null'
+        optionType:
+          type:
+          - string
+          - 'null'
+          enum:
+          - Put
+          - Call
+        strike:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        contractSize:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        coupon:
+          $ref: '#/components/schemas/NullableNumberInterval'
+        expiration:
+          $ref: '#/components/schemas/NullableDateInterval'
+        maturity:
+          $ref: '#/components/schemas/NullableDateInterval'
+        stateCode:
+          $ref: '#/components/schemas/StateCode'
     StateCode:
       type:
       - string
@@ -567,6 +502,61 @@ components:
           type: array
           items:
             type: string
+    BulkMappingJob:
+      type: array
+      items:
+        $ref: '#/components/schemas/MappingJob'
+    MappingJob:
+      required:
+      - idType
+      - idValue
+      type: object
+      properties:
+        idType:
+          type: string
+          enum:
+          - ID_ISIN
+          - ID_BB_UNIQUE
+          - ID_SEDOL
+          - ID_COMMON
+          - ID_WERTPAPIER
+          - ID_CUSIP
+          - ID_BB
+          - ID_ITALY
+          - ID_EXCH_SYMBOL
+          - ID_FULL_EXCHANGE_SYMBOL
+          - COMPOSITE_ID_BB_GLOBAL
+          - ID_BB_GLOBAL_SHARE_CLASS_LEVEL
+          - ID_BB_SEC_NUM_DES
+          - ID_BB_GLOBAL
+          - TICKER
+          - ID_CUSIP_8_CHR
+          - OCC_SYMBOL
+          - UNIQUE_ID_FUT_OPT
+          - OPRA_SYMBOL
+          - TRADING_SYSTEM_IDENTIFIER
+          - ID_CINS
+          - ID_SHORT_CODE
+          - BASE_TICKER
+          - VENDOR_INDEX_CODE
+        idValue:
+          oneOf:
+          - type: string
+          - type: integer
+      description: 'For V3: securityType2 is required when idType is BASE_TICKER or ID_EXCH_SYMBOL.  expiration is required when securityType2 is Option or Warrant.  maturity is required when securityType2 is Pool.'
+      allOf:
+      - $ref: '#/components/schemas/CommonSearchMappingRequest'
+    NullableNumberInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - number
+        - 'null'
     MappingJobResultFigiList:
       type: object
       properties:
@@ -574,12 +564,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FigiResult'
-  examples:
-    simpleMappingRequest:
-      summary: Simple mapping request
-      value:
-      - idType: ID_BB_GLOBAL
-        idValue: BBG000BLNNH6
+    BulkMappingJobResult:
+      type: array
+      items:
+        $ref: '#/components/schemas/MappingJobResult'
+    NullableDateInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - string
+        - 'null'
+        format: date
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

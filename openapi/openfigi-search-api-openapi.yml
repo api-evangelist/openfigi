@@ -112,20 +112,73 @@ paths:
       operationId: postSearch
       x-operation-id-source: derived
 components:
+  examples:
+    simpleSearchRequest:
+      summary: Simple search request
+      value:
+        query: ibm
+        exchCode: US
   schemas:
-    SearchRequest:
+    SearchResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/SearchResponseElement'
+    FigiResult:
       type: object
       properties:
-        query:
+        figi:
           type: string
-          example: Apple
-        start:
-          type: string
-          description: The number of results returned for any given request is fixed. When more results are accessible, the response will contain a next property whose value should be sent in succeeding requests as the value of the start property. This will notify the API to return the next "page" of results.
-          example: QW9Fc1FrSkhNREF3TVZKWVJrUTAgMQ==.dannV9BsO7PRuiC2NdA2wVaJLH3fRpeeWnu3HNM73t0=
-      description: At least one property in the request object must be populated.
-      allOf:
-      - $ref: '#/components/schemas/CommonSearchMappingRequest'
+          example: BBG000B9XVV8
+        securityType:
+          type:
+          - string
+          - 'null'
+          example: Common Stock
+        marketSector:
+          type:
+          - string
+          - 'null'
+          example: Equity
+        ticker:
+          type:
+          - string
+          - 'null'
+          example: AAPL
+        name:
+          type:
+          - string
+          - 'null'
+          example: APPLE INC
+        exchCode:
+          type:
+          - string
+          - 'null'
+          example: UN
+        shareClassFIGI:
+          type:
+          - string
+          - 'null'
+          example: BBG001S5N8V8
+        compositeFIGI:
+          type:
+          - string
+          - 'null'
+          example: BBG000B9XRY4
+        securityType2:
+          type:
+          - string
+          - 'null'
+          example: Common Stock
+        securityDescription:
+          type:
+          - string
+          - 'null'
+          example: AAPL
+        metadata:
+          type:
+          - string
+          - 'null'
+          description: Exists when API is unable to show non-FIGI fields.
     CommonSearchMappingRequest:
       type: object
       properties:
@@ -179,33 +232,6 @@ components:
           $ref: '#/components/schemas/NullableDateInterval'
         stateCode:
           $ref: '#/components/schemas/StateCode'
-    SearchResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/SearchResponseElement'
-    NullableNumberInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - number
-        - 'null'
-    NullableDateInterval:
-      maxItems: 2
-      minItems: 2
-      type:
-      - array
-      - 'null'
-      description: At least one entry should be non-null.
-      items:
-        type:
-        - string
-        - 'null'
-        format: date
     StateCode:
       type:
       - string
@@ -353,62 +379,6 @@ components:
       - YT
       - YU
       - ZJ
-    FigiResult:
-      type: object
-      properties:
-        figi:
-          type: string
-          example: BBG000B9XVV8
-        securityType:
-          type:
-          - string
-          - 'null'
-          example: Common Stock
-        marketSector:
-          type:
-          - string
-          - 'null'
-          example: Equity
-        ticker:
-          type:
-          - string
-          - 'null'
-          example: AAPL
-        name:
-          type:
-          - string
-          - 'null'
-          example: APPLE INC
-        exchCode:
-          type:
-          - string
-          - 'null'
-          example: UN
-        shareClassFIGI:
-          type:
-          - string
-          - 'null'
-          example: BBG001S5N8V8
-        compositeFIGI:
-          type:
-          - string
-          - 'null'
-          example: BBG000B9XRY4
-        securityType2:
-          type:
-          - string
-          - 'null'
-          example: Common Stock
-        securityDescription:
-          type:
-          - string
-          - 'null'
-          example: AAPL
-        metadata:
-          type:
-          - string
-          - 'null'
-          description: Exists when API is unable to show non-FIGI fields.
     SearchResponseElement:
       type: object
       properties:
@@ -426,12 +396,42 @@ components:
           - string
           - 'null'
           example: QW9JSVFhUkFkQ3hDUWtjd01EQkNPVmszVnprPSAx.zqwblbHbOpBKhinclIlmUiLeMkflobBlSuWyA1Q10Ac=
-  examples:
-    simpleSearchRequest:
-      summary: Simple search request
-      value:
-        query: ibm
-        exchCode: US
+    SearchRequest:
+      type: object
+      properties:
+        query:
+          type: string
+          example: Apple
+        start:
+          type: string
+          description: The number of results returned for any given request is fixed. When more results are accessible, the response will contain a next property whose value should be sent in succeeding requests as the value of the start property. This will notify the API to return the next "page" of results.
+          example: QW9Fc1FrSkhNREF3TVZKWVJrUTAgMQ==.dannV9BsO7PRuiC2NdA2wVaJLH3fRpeeWnu3HNM73t0=
+      description: At least one property in the request object must be populated.
+      allOf:
+      - $ref: '#/components/schemas/CommonSearchMappingRequest'
+    NullableNumberInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - number
+        - 'null'
+    NullableDateInterval:
+      maxItems: 2
+      minItems: 2
+      type:
+      - array
+      - 'null'
+      description: At least one entry should be non-null.
+      items:
+        type:
+        - string
+        - 'null'
+        format: date
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
