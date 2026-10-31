@@ -1,4 +1,4 @@
-# OpenFIGI (openfigi)
+# OpenFIGI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,57 +66,119 @@
 
 OpenFIGI is your entry point to multiple tools for identifying, mapping and requesting a free Financial Instrument Global Identifier (FIGI). OpenFIGI is an open system for identifying instruments globally across all asset classes. Combining the FIGI with additional descriptive meta-data, firms are able to link fragmented proprietary symbologies, fill the gaps that remain to create a data lineage, streamline the trade workflow and reduce operational risk.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/openfigi/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/openfigi/refs/heads/main/apis.yml)
+**Areas:** Finance · Instruments
 
-## Scope
+## OpenFIGI on APIs.io
 
-- **Type:** Index
+Everything profiled for OpenFIGI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/openfigi/](https://apis.io/providers/openfigi/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Financial
-- Instruments
+- [OpenFIGI Filter API](https://apis.io/apis/openfigi/openfigi-filter-api/) — The Filter API from OpenFIGI — 1 operation(s) for filter.
+- [OpenFIGI Mapping API](https://apis.io/apis/openfigi/openfigi-mapping-api/) — The Mapping API from OpenFIGI — 2 operation(s) for mapping.
+- [OpenFIGI Search API](https://apis.io/apis/openfigi/openfigi-search-api/) — The Search API from OpenFIGI — 1 operation(s) for search.
 
-## Timestamps
+### Published properties
 
-- **Created:** Thu Sep 26 2024 20:00:00 GMT-0400 (Eastern Daylight Time)
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### OpenFIGI API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-OpenFIGI is your entry point to multiple tools for identifying, mapping and requesting a free Financial Instrument Global Identifier (FIGI). OpenFIGI is an open system for identifying instruments globally across all asset classes. Combining the FIGI with additional descriptive meta-data, firms are able to link fragmented proprietary symbologies, fill the gaps that remain to create a data lineage, streamline the trade workflow and reduce operational risk.
+- [Openfigi Agentic Access](https://apis.io/agentic-access/openfigi/openfigi-agentic-access/)
 
-- **Human URL:** [https://www.openfigi.com/](https://www.openfigi.com/)
-- **Base URL:** `https://api.openfigi.com`
+#### Collections (4)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Financial
-- Instruments
+- [OpenFIGI API](https://apis.io/collections/openfigi/open-openfigi/)
+- [OpenFIGI Filter API](https://apis.io/collections/openfigi/open-openfigi-filter-api/)
+- [OpenFIGI Filter Mapping API](https://apis.io/collections/openfigi/open-openfigi-mapping-api/)
+- [OpenFIGI Filter Search API](https://apis.io/collections/openfigi/open-openfigi-search-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://www.openfigi.com/api)
-- [Example](https://www.openfigi.com/api#examples-on-github)
-- [Rate Limits](ttps://www.openfigi.com/api#rate-limit)
-- [Status  Codes](https://www.openfigi.com/api#status-code)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/openfigi/refs/heads/main/openapi/openfigi-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/openfigi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/openfigi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Openfigi Authentication](https://apis.io/security/openfigi/openfigi-authentication/)
+- [Openfigi Domain Security](https://apis.io/security/openfigi/openfigi-domain-security/)
 
-- [GitHub Organization](https://github.com/OpenFIGI)
-- [About](https://www.openfigi.com/about)
-- [News](https://www.openfigi.com/about/news)
-- [Login](https://www.openfigi.com/user/login)
-- [Sign- Up](https://www.openfigi.com/user/signup)
-- [Contact](https://www.openfigi.com/feedback)
-- [F A Qs](https://www.openfigi.com/docs/faqs)
+#### Plans and pricing (1)
 
-## Maintainers
+Published plans, tiers and prices.
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- [Openfigi Plans Pricing](https://apis.io/plans/openfigi/openfigi-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Openfigi Rate Limits](https://apis.io/rate-limits/openfigi/openfigi-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Openfigi Finops](https://apis.io/finops/openfigi/openfigi-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.openfigi.com/)
+- [Blog](https://www.openfigi.com/about/news)
+- [GitHub](https://github.com/OpenFIGI)
+
+## API Evangelist rating
+
+**Kin Score 31.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.9 |
+| Contract quality | 54.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 21.1 |
+
+**Agent readiness 25.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/openfigi/](https://apis.io/providers/openfigi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for OpenFIGI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/openfigi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
